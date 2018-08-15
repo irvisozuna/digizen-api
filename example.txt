@@ -1,0 +1,26 @@
+        $basePath   = 'http://cloud.quantumbit.mx/ocs/'; //http://cloud.quantumbit.mx//ocs/v2.php/apps/files_sharing/api/v1
+        $username   = 'iozuna';
+        $password   = 'OUMI7931*';
+
+        $wrapper    = DigizenWrapper::build($basePath, $username, $password);
+
+// https://docs.nextcloud.com/server/12/admin_manual/configuration_user/user_provisioning_api.html
+        $userClient                 = $wrapper->getUsersClient();
+        $groupsClient               = $wrapper->getGroupsClient();
+        $appsClient                 = $wrapper->getAppsClient();
+
+// https://docs.nextcloud.com/server/12/developer_manual/core/ocs-share-api.html
+
+        $options = ['permissions'=>19,'shareType'=>3,'path'=>'/invoices/0001.txt','password'=>'','shareWith'=>''];
+        $sharesClient               = $wrapper->getSharesClient()->createShare($options);
+ //       $federatedCloudSharesClient = $wrapper->getFederatedCloudSharesClient();
+
+//Instance of \NextcloudApiWrapper\NextcloudResponse
+        $response   = $userClient->getUsers();
+        $code       = $response->getStatusCode();   //status code
+        $users      = $response->getData();         //data as array
+        $message    = $response->getStatus();       //status message
+        $guzzle     = $response->getRawResponse();  //Guzzle response
+
+        $response   = $sharesClient;
+        dd($response->getData());

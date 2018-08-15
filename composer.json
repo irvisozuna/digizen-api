@@ -1,0 +1,43 @@
+{
+    "name": "irvisozuna/digizenwrapper",
+    "description": ":description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Irvis Ozuna",
+            "email": "iozuna@quantumbit.mx",
+            "homepage": "Irvis Ozuna"
+        }
+    ],
+    "homepage": "https://github.com/irvisozuna/digizenwrapper",
+    "keywords": ["Laravel", "DigizenWrapper"],
+    "require": {
+        "illuminate/support": "~5",
+        "guzzlehttp/guzzle": "^6.3",
+        "symfony/options-resolver": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IrvisOzuna\\DigizenWrapper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IrvisOzuna\\DigizenWrapper\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IrvisOzuna\\DigizenWrapper\\DigizenWrapperServiceProvider"
+            ],
+            "aliases": {
+                "DigizenWrapper": "IrvisOzuna\\DigizenWrapper\\Facades\\DigizenWrapper"
+            }
+        }
+    }
+}
