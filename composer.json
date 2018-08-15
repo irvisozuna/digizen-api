@@ -9,6 +9,7 @@
             "homepage": "https://github.com/irvisozuna"
         }
     ],
+    "minimum-stability": "stable",
     "homepage": "https://github.com/irvisozuna/digizen-api",
     "keywords": ["Laravel", "DigizenWrapper","Digizen"],
     "require": {
