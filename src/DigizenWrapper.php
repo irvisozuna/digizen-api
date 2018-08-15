@@ -19,7 +19,10 @@ class DigizenWrapper
         $this->connection = $connection;
     }
 
-    public static function build($baseUri, $username, $password) {
+    public static function build($baseUri = null, $username = null, $password = null) {
+        $baseUri = ($baseUri)?$baseUri:config('digizenwrapper.basePath');
+        $username = ($username)?$username:config('digizenwrapper.username');
+        $password = ($password)?$password:config('digizenwrapper.password');
         $connection = new Connection($baseUri, $username, $password);
         return new DigizenWrapper($connection);
     }

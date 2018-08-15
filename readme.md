@@ -15,8 +15,21 @@ Via Composer
 $ composer require irvisozuna/digizenwrapper
 ```
 
-## Usage
+Publish files
+``` bash
+$ php artisan vendor:publish --provider="IrvisOzuna\DigizenWrapper\DigizenWrapperServiceProvider"
+```
 
+
+## Usage
+        $basePath   = 'http://cloud.quantumbit.mx/ocs/'; //http://cloud.quantumbit.mx//ocs/v2.php/apps/files_sharing/api/v1
+        $username   = 'iozuna';
+        $password   = 'OUMI7931*';
+        $wrapper    = DigizenWrapper::build($basePath, $username, $password);
+        $options = ['permissions'=>19,'shareType'=>3,'path'=>'/invoices/0001.txt','password'=>'','shareWith'=>''];
+        $sharesClient               = $wrapper->getSharesClient()->createShare($options);
+        $response   = $sharesClient->getData();
+        return response()->json($response);
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.

@@ -19,6 +19,9 @@ class DigizenWrapperServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         $this->loadRoutesFrom(__DIR__.'/Routes/api.php');
+        $this->publishes([
+            __DIR__.'/../config/digizenwrapper.php' => config_path('digizenwrapper.php'),
+        ], 'digizenwrapper.config');
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
 
