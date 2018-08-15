@@ -39,5 +39,6 @@
                 "DigizenWrapper": "IrvisOzuna\\DigizenWrapper\\Facades\\DigizenWrapper"
             }
         }
-    }
+    },
+    "license": "MIT"
 }
