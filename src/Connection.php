@@ -62,11 +62,12 @@ class Connection
      * @return NextcloudResponse
      */
     public function pushDataRequest($verb, $path, array $params = []) {
-
         $params = empty($params) ? $this->getBaseRequestParams() : $params;
         $params['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
 
-        return $this->request($verb, $path, $params);
+        return $this->request($verb, $path, array_merge($this->getBaseRequestParams(), [
+            RequestOptions::FORM_PARAMS => $params
+        ]));
     }
 
     /**
